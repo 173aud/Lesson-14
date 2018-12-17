@@ -19,6 +19,8 @@ public class Assignment extends javax.swing.JFrame {
      */
     JLabel container[]=new JLabel[10];
     Stack<Container> yard=new Stack();
+    ArrayList<Container> out=new ArrayList();
+    DefaultListModel outdata;
     public Assignment() {
         initComponents();
         container[9]=lbltest;
@@ -58,7 +60,7 @@ public class Assignment extends javax.swing.JFrame {
         lbltest7 = new javax.swing.JLabel();
         lbltest8 = new javax.swing.JLabel();
         lbltest9 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnbook = new javax.swing.JButton();
         txtbook = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         listcontainer = new javax.swing.JList<>();
@@ -96,10 +98,10 @@ public class Assignment extends javax.swing.JFrame {
         lbltest9.setText("Testing");
         lbltest9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jButton1.setText("Book");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnbook.setText("Book");
+        btnbook.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnbookActionPerformed(evt);
             }
         });
 
@@ -123,7 +125,7 @@ public class Assignment extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(btnbook)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtbook, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lbltest4, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,7 +173,7 @@ public class Assignment extends javax.swing.JFrame {
                 .addComponent(lbltest9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btnbook)
                     .addComponent(txtbook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -184,9 +186,13 @@ public class Assignment extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnbookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbookActionPerformed
+        yard.pop();
+        if(txtbook.getText()==""||txtbook.getText()==null) txtbook.setText("N/A");
+        
         container[yard.size()].setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_btnbookActionPerformed
 
     private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
         
@@ -228,8 +234,8 @@ public class Assignment extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnbook;
     private javax.swing.JButton btnreturn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbltest;
     private javax.swing.JLabel lbltest1;

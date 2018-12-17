@@ -19,6 +19,11 @@ public class Container {
         name="N/A";
 }
 
+    public Container(String n){
+        id=nextid++;
+        name=n;
+    }
+    
     public void unbook() {
         this.name="N/A";
     }
