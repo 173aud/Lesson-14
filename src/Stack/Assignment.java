@@ -187,11 +187,12 @@ public class Assignment extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbookActionPerformed
-        yard.pop();
+        Container c=yard.pop();
         if(txtbook.getText()==""||txtbook.getText()==null) txtbook.setText("N/A");
-        
-        container[yard.size()].setVisible(false);
-        
+        c.book(txtbook.getText());
+        out.add(c);
+        outdata.addElement(c);
+        container[yard.size()].setVisible(false);    
     }//GEN-LAST:event_btnbookActionPerformed
 
     private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
