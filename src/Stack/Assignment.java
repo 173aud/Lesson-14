@@ -21,24 +21,27 @@ public class Assignment extends javax.swing.JFrame {
     Stack<Container> yard=new Stack();
     ArrayList<Container> out=new ArrayList();
     DefaultListModel outdata;
+    
     public Assignment() {
         initComponents();
-        container[9]=lbltest;
-        container[8]=lbltest1;
-        container[7]=lbltest2;
-        container[6]=lbltest3;
-        container[5]=lbltest4;
-        container[4]=lbltest5;
-        container[3]=lbltest6;
-        container[2]=lbltest7;
-        container[1]=lbltest8;
-        container[0]=lbltest9;
+        container[0]=lbltest;
+        container[1]=lbltest1;
+        container[2]=lbltest2;
+        container[3]=lbltest3;
+        container[4]=lbltest4;
+        container[5]=lbltest5;
+        container[6]=lbltest6;
+        container[7]=lbltest7;
+        container[8]=lbltest8;
+        container[9]=lbltest9;
        
         for(JLabel c:container){
             yard.push(new Container());
             c.setText(yard.peek().toString());
         }
-               
+        
+        outdata=new DefaultListModel();
+        listcontainer.setModel(outdata);
     }
 
     /**
@@ -50,8 +53,8 @@ public class Assignment extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbltest2 = new javax.swing.JLabel();
         lbltest3 = new javax.swing.JLabel();
+        lbltest2 = new javax.swing.JLabel();
         lbltest4 = new javax.swing.JLabel();
         lbltest1 = new javax.swing.JLabel();
         lbltest = new javax.swing.JLabel();
@@ -68,11 +71,11 @@ public class Assignment extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lbltest2.setText("Testing");
-        lbltest2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
         lbltest3.setText("Testing");
         lbltest3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        lbltest2.setText("Testing");
+        lbltest2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lbltest4.setText("Testing");
         lbltest4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -129,8 +132,8 @@ public class Assignment extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(txtbook, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lbltest4, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbltest2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbltest3, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbltest2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbltest6, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbltest5, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbltest7, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -156,9 +159,9 @@ public class Assignment extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbltest1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lbltest3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(lbltest2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbltest3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbltest4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -188,15 +191,23 @@ public class Assignment extends javax.swing.JFrame {
 
     private void btnbookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbookActionPerformed
         Container c=yard.pop();
-        if(txtbook.getText()==""||txtbook.getText()==null) txtbook.setText("N/A");
-        c.book(txtbook.getText());
+        if(txtbook.getText().equals("")||txtbook.equals(null)) c.book("N/A");
+        else c.book(txtbook.getText());
         out.add(c);
         outdata.addElement(c);
-        container[yard.size()].setVisible(false);    
+        container[yard.size()].setVisible(false);
+        txtbook.setText("");
+        txtbook.requestFocus();
     }//GEN-LAST:event_btnbookActionPerformed
 
     private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
-        
+        int index=listcontainer.getSelectedIndex();
+        Container c=out.remove(index);
+        outdata.remove(index);
+        c.unbook();
+        yard.push(c);
+        container[yard.size()-1].setVisible(true);
+        container[yard.size()-1].setText(c.toString());
     }//GEN-LAST:event_btnreturnActionPerformed
 
     /**

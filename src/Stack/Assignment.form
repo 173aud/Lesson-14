@@ -35,8 +35,8 @@
                               <Component id="txtbook" min="-2" pref="150" max="-2" attributes="0"/>
                           </Group>
                           <Component id="lbltest4" alignment="0" min="-2" pref="251" max="-2" attributes="0"/>
-                          <Component id="lbltest2" alignment="0" min="-2" pref="251" max="-2" attributes="0"/>
                           <Component id="lbltest3" alignment="0" min="-2" pref="251" max="-2" attributes="0"/>
+                          <Component id="lbltest2" alignment="0" min="-2" pref="251" max="-2" attributes="0"/>
                           <Component id="lbltest6" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
                           <Component id="lbltest5" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
                           <Component id="lbltest7" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
@@ -71,9 +71,9 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="lbltest1" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="lbltest3" min="-2" pref="30" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="lbltest2" min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="lbltest3" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="lbltest4" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -103,13 +103,13 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lbltest2">
+    <Component class="javax.swing.JLabel" name="lbltest3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Testing"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbltest3">
+    <Component class="javax.swing.JLabel" name="lbltest2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Testing"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
